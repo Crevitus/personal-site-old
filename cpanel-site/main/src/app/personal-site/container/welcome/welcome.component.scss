@@ -1,0 +1,19 @@
+.splash-screen {
+  position: relative;
+
+  .splash-screen__tag-line {
+    font-size: 4rem;
+    left: 2rem;
+    color: #474646;
+    position: absolute;
+  }
+
+  .splash-screen__graphic {
+    background: url("../../../../assets/splashscreen.jpg") no-repeat;
+    background-size: cover;
+    background-position-x: right;
+    height: 575px;
+    width: 950px;
+    margin-left: auto;
+  }
+}

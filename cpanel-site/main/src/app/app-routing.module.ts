@@ -5,7 +5,12 @@ const routes: Routes = [
   {
     matcher: matcher,
     loadChildren: () => import('./azure-badger/azure-badger.module').then(mod => mod.AzureBadgerModule)
-  }
+  },
+  {
+    path: '',
+    loadChildren: () => import('./personal-site/personal-site.module').then(mod => mod.PersonalSiteModule)
+  },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -16,10 +21,10 @@ export class AppRoutingModule {
 }
 
 export function matcher(url: UrlSegment[]) {
-    if ((isDevMode() && url[0].path === 'azure-badger')
+    if ((isDevMode() && url.length > 0 && url[0].path === 'azure-badger')
       || window.location.hostname === 'azurebadger.com') {
       return {
-        consumed: url,
+        consumed: url
       };
     }
     return null;
