@@ -1,0 +1,8 @@
+<a routerLink="/secrettest" class="link"></a>
+<h1>Under Construction!</h1>
+<section class="wall" [ngClass]="shakeClass" (mouseenter)="mouseOver = true" (mouseleave)="mouseOver = false">
+  <ng-container *ngFor="let i of bricks; let odd=odd; let even=even;">
+      <div class="brick" [ngClass]="{ 'brick--odd': odd, 'brick--even': even }"></div>
+  </ng-container>
+</section>
+<h2>Days since last incident: 0</h2>

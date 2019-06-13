@@ -1,0 +1,124 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  cursor: default;
+}
+
+.wall {
+  display: flex;
+  width: 80vw;
+  height: 80vh;
+  flex-wrap: wrap-reverse;
+  overflow: hidden;
+
+  &.shake--low {
+    .brick {
+      flex-basis: 6%;
+      margin: .2rem;
+      animation: shake 1s linear infinite alternate;
+    }
+  }
+
+  &.shake--medium {
+    .brick {
+      flex-basis: 6%;
+      margin: .2rem;
+      animation: shake--medium 1s linear infinite alternate;
+    }
+  }
+
+  &.shake--high {
+    .brick--even {
+      animation: collapse--even 2s ease-out forwards;
+    }
+
+    .brick--odd {
+      animation: collapse--odd 2s ease-out forwards;
+    }
+  }
+
+  .brick {
+    flex-basis: 8%;
+    border-bottom: 5px solid gray;
+    transform: translate3d(0, 0, 0);
+
+    &.brick--even {
+      background-color: saddlebrown;
+    }
+
+    &.brick--odd {
+      background-color: #642915;
+    }
+  }
+}
+
+@keyframes collapse--odd {
+  10% {
+    transform: translate(-20%,20%) rotate(-10deg);
+  }
+
+  100% {
+    transform: translate(-600%,600%) rotate(-200deg);
+  }
+}
+
+@keyframes collapse--even {
+  10% {
+    transform: translate(20%,20%) rotate(10deg);
+  }
+
+  100% {
+    transform: translate(600%,600%) rotate(200deg);
+  }
+}
+
+@keyframes shake {
+  10%, 50%, 90% {
+    transform: rotate(10deg);
+  }
+
+  20%, 40%, 60%, 80%, 100% {
+    transform: rotate(0deg);
+  }
+
+  30%, 70% {
+    transform: rotate(-10deg);
+  }
+}
+
+
+@keyframes shake--medium {
+  10%, 50%, 90% {
+    transform: rotate(20deg);
+  }
+
+  20%, 40%, 60%, 80%, 100% {
+    transform: rotate(0deg);
+  }
+
+  30%, 70% {
+    transform: rotate(-20deg);
+  }
+}
+
