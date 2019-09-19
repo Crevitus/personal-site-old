@@ -6,17 +6,34 @@ import {UnderConstructionComponent} from './under-construction/under-constructio
 
 const routes: Routes = [
   {
-    path: 'secrettest',
+    path: '',
     component: ContainerComponent,
     children: [
       {
         path: '', component: WelcomeComponent
+      },
+      {
+        path: 'resume',
+        component: UnderConstructionComponent,
+        data: {
+          title: 'Résumé'
+        }
+      },
+      {
+        path: 'open-source',
+        component: UnderConstructionComponent,
+        data: {
+          title: 'Open Source'
+        }
+      },
+      {
+        path: 'services',
+        component: UnderConstructionComponent,
+        data: {
+          title: 'Services'
+        }
       }
     ]
-  },
-  {
-    path: '',
-    component: UnderConstructionComponent
   }
 ];
 

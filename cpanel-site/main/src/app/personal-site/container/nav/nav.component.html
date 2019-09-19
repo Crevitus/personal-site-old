@@ -1,4 +1,5 @@
 <ul>
-  <li>Test</li>
-  <li>Test 2</li>
+  <li *ngFor="let link of links">
+    <a [routerLink]="link.path">{{ link.title }}</a>
+  </li>
 </ul>

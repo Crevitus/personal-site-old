@@ -12,7 +12,8 @@ h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
+  z-index: 0;
+  color: white;
 }
 
 .link {
@@ -31,6 +32,8 @@ h2 {
   height: 80vh;
   flex-wrap: wrap-reverse;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 
   &.shake--low {
     .brick {
@@ -75,21 +78,21 @@ h2 {
 
 @keyframes collapse--odd {
   10% {
-    transform: translate(-20%,20%) rotate(-10deg);
+    transform: translate3d(-20%,20%, 0) rotate(-10deg);
   }
 
   100% {
-    transform: translate(-600%,600%) rotate(-200deg);
+    transform: translate3d(-600%,600%, 0) rotate(-200deg);
   }
 }
 
 @keyframes collapse--even {
   10% {
-    transform: translate(20%,20%) rotate(10deg);
+    transform: translate3d(20%,20%,0) rotate(10deg);
   }
 
   100% {
-    transform: translate(600%,600%) rotate(200deg);
+    transform: translate3d(600%,600%,0) rotate(200deg);
   }
 }
 

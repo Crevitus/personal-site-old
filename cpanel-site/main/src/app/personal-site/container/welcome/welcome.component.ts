@@ -12,4 +12,7 @@ export class WelcomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  openMail() {
+     window.location.href = 'mailto:iam@bencrevis.uk';
+  }
 }

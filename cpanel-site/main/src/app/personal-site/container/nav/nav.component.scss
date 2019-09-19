@@ -1,9 +1,22 @@
 ul {
   display: flex;
-  padding: 0;
+  justify-content: flex-end;
+  padding: .5rem 0;
+  margin: 0;
   list-style-type: none;
 
   li {
-    margin-left: 1rem;
+    margin-left: 3rem;
+
+    &:first-child {
+      @media only screen and (max-width: 500px) {
+        margin-left: 0;
+      }
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
   }
 }
