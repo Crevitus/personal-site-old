@@ -1,0 +1,15 @@
+<main>
+    <button type="button" (click)="deleteAll()">Delete all</button>
+    <ul>
+        <li *ngFor="let item of items | async">
+            {{ item.value }}
+        </li>
+    </ul>
+    <form [formGroup]="describeablesForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-full-width">
+            <mat-label>Describeable</mat-label>
+            <input matInput formControlName="value">
+        </mat-form-field>
+        <button type="submit">Add</button>
+    </form>
+</main>

@@ -1,0 +1,86 @@
+<main>
+    <h1>Recipes</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Serves</mat-label>
+            <input matInput formControlName="serves">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Prep time</mat-label>
+            <input matInput formControlName="prepTime">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Cooking time</mat-label>
+            <input matInput formControlName="cookingTime">
+        </mat-form-field>
+        <div formArrayName="ingredients">
+            <h2>Ingredients</h2>
+            <div *ngFor="let item of ingredientsFormArray.controls; let controlIndex=index" [formGroupName]="controlIndex">
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Quantity</mat-label>
+                    <input matInput formControlName="quantity">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Unit of Measure</mat-label>
+                    <mat-select formControlName="unitOfMeasure">
+                        <mat-option *ngFor="let UOM of unitsOfMeasure" [value]="UOM.id">
+                            {{ UOM.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div formArrayName="methodSections">
+            <h2>Method</h2>
+            <div *ngFor="let item of methodSectionsFormArray.controls; let controlIndex=index" [formGroupName]="controlIndex">
+                <mat-form-field>
+                    <mat-label>Text</mat-label>
+                    <textarea matInput formControlName="value"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <section>
+        <article>
+            <h2>Chicken Tikka Masala</h2>
+            <h3>Ingredients</h3>
+            <h4>Tikka Paste</h4>
+            <ul>
+                <li>1tbsp coriander seeds</li>
+                <li>1/2 teaspoon cumin seeds</li>
+                <li>1 tbsp garam masala</li>
+                <li>1 teaspoon turmeric</li>
+                <li>7 cloves garlic</li>
+                <li>1 2inch piece ginger</li>
+                <li>1-2 red chillis</li>
+                <li>1/4cup (60ml) water</li>
+                <li>2tbsp (30ml) olive oil</li>
+            </ul>
+                <h4>Chicken Marinade</h4>
+            <ul>
+                <li>1 cup (225g) yogurt</li>
+                <li>1kg boneless, skinless chicken thighs</li>
+                <li>2 tbsp (26g) of tikka paste</li>
+                <li>2 teaspoons (7g) kosher salt</li>
+            </ul>
+                <h4>The Sauce</h4>
+            <ul>
+                <li>2 cans whole peeled tomatoes, blended and strained</li>
+                <li>4 tbsp (56g) unsalted butter</li>
+                <li>1 large onion</li>
+                <li>300ml cup double cream</li>
+                <li>1 tbsp paprika</li>
+            </ul>
+            <h3>Method</h3>
+        </article>
+    </section>
+</main>
