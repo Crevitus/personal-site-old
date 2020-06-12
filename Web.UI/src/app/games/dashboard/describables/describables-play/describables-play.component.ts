@@ -3,24 +3,24 @@ import { GamesRepositoryService } from '../../../games-repository.service';
 import { RandomPickerService } from '../../../random-picker.service';
 
 @Component({
-    selector: 'app-describeables-play',
-    templateUrl: './describeables-play.component.html',
-    styleUrls: ['./describeables-play.component.scss']
+    selector: 'app-describables-play',
+    templateUrl: './describables-play.component.html',
+    styleUrls: ['./describables-play.component.scss']
 })
-export class DescribeablesPlayComponent {
+export class DescribablesPlayComponent {
 
-    public describeableValue: string;
+    public describableValue: string;
 
     constructor(private repo: GamesRepositoryService, private rndPicker: RandomPickerService) {
     }
 
     public async getDescribeable(): Promise<void> {
-        const unusedDescribeables = await this.repo.getUnusedDescribeables();
+        const unusedDescribables = await this.repo.getUnusedDescribables();
 
-        const describeable = this.rndPicker.getRandomItemFrom(unusedDescribeables);
+        const describeable = this.rndPicker.getRandomItemFrom(unusedDescribables);
 
         await this.repo.markDescribeableAsUsed(describeable.id);
 
-        this.describeableValue = describeable.value;
+        this.describableValue = describeable.value;
     }
 }
